@@ -54,12 +54,12 @@ def write_file(content, fileName):
 
 def start_jieba(data, fileName):
     f =  open(os.path.join(currentPath, fileName), 'a+')
+    stop_sc = get_stopWords(stopwordFilePath)
     for content in data:
         tmp = ''.join(filter_words(content.lower()))
         seg_words = jieba.cut(tmp, cut_all=False, HMM=True)
         # words: save content after jieba and remove stop words, words separate by blank
         words = []
-        stop_sc = get_stopWords(stopwordFilePath)
         for word in seg_words:
             if word.strip() not in stop_sc:
                 words.append(word.strip().encode('utf-8'))
