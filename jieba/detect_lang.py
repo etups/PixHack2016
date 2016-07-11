@@ -13,7 +13,7 @@ def main():
             for word in line.split():
                 lang, conf = langid.classify(word)
                 if lang in filter_lang:
-                    if w in filter_dict:
+                    if word in filter_dict:
                         filter_dict[word] += 1
                     else:
                         filter_dict[word] = 0
