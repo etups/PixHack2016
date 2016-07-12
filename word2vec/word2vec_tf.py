@@ -1,5 +1,5 @@
 import tensorflow as tf
-from tensorflow.models.embedding.word2vec import Word2Vec, Options
+from tensorflow.models.embedding.word2vec_optimized import Word2Vec, Options
 from six.moves import xrange
 import os
 import time
