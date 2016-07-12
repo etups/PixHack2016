@@ -16,13 +16,13 @@ def main():
                     if word in filter_dict:
                         filter_dict[word] += 1
                     else:
-                        filter_dict[word] = 0
+                        filter_dict[word] = 1
 
         f.close()
 
     f = open("filter.txt", "w+")
     for k, v in filter_dict.items():
-        f.write("%s %d" % (k, v))
+        f.write("%s %d\n" % (k, v))
 
 if __name__ == '__main__':
     main()
