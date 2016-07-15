@@ -38,7 +38,7 @@ hidden
 '''
 
 # Parameters
-training_iter = 1000
+training_iter = 10000
 batch_size = 3
 display_step = 10
 dim_input = 5
