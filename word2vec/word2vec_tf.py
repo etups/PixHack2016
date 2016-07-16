@@ -21,13 +21,9 @@ class MyWord2Vec(Word2Vec):
         opts = self._options
         with open(os.path.join(opts.save_path, "vocab.txt"), "w") as f:
             for i in xrange(opts.vocab_size):
+                vocab_word = tf.compat.as_text(opts.vocab_words[i]).encode("utf-8")
                 f.write("%s %d\n" % (tf.compat.as_text(opts.vocab_words[i]).encode('utf-8'),
-                opts.vocab_counts[i]))
-
-    # override
-    def eval(self):
-        """Evaluate analogy questions and reports accuracy."""
-        return
+                    opts.vocab_counts[i]))
 
 def main():
     # set word2vec options
@@ -47,7 +43,7 @@ def main():
                 model = MyWord2Vec(options, session)
                 for _ in xrange(options.epochs_to_train):
                     model.train()  # Process one epoch
-                    model.eval() # Eval analogies.
+                    #model.eval() # Eval analogies.
 
                 model.saver.save(session,
                      os.path.join(options.save_path, "model.ckpt"),
